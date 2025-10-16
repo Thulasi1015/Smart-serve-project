@@ -1,317 +1,218 @@
 import React from "react";
-import { BrowserRouter as Router, Routes, Route, Link } from "react-router-dom";
+import "./App.css";
+import "./css/main.css";
 import "bootstrap/dist/css/bootstrap.min.css";
-import "bootstrap/dist/js/bootstrap.bundle.min";
-import {
-  FaFacebookF,
-  FaTwitter,
-  FaGoogle,
-  FaInstagram,
-  FaLinkedin,
-  FaGithub,
-  FaGem,
-  FaHome,
-  FaEnvelope,
-  FaPhone,
-} from "react-icons/fa";
+import "bootstrap-icons/font/bootstrap-icons.css";
+import "@fortawesome/fontawesome-free/css/all.min.css";
 
-// ✅ Navbar Component
-const Navbar = () => {
-  return (
-    <nav className="navbar navbar-expand-lg bg-success-subtle sticky-top">
-      <div className="container-fluid">
-        <Link className="navbar-brand d-flex align-items-center" to="/">
-          <img
-            src={process.env.PUBLIC_URL + "/images/logo2.png"}
-            alt="Smart Serve Logo"
-            className="img-fluid me-2 rounded shadow-sm"
-            style={{
-              height: "60px",
-              width: "auto",
-              objectFit: "cover",
-              borderRadius: "50%",
-              backgroundColor: "#f8fff8",
-              padding: "4px",
-            }}
-          />
-          <span className="navbar-brand-name text-success fw-bold fs-4">
-            Smart Serve
-          </span>
-        </Link>
-
-        <button
-          className="navbar-toggler"
-          type="button"
-          data-bs-toggle="collapse"
-          data-bs-target="#navbarSupportedContent"
-          aria-controls="navbarSupportedContent"
-          aria-expanded="false"
-          aria-label="Toggle navigation"
-        >
-          <span className="navbar-toggler-icon"></span>
-        </button>
-
-        <div className="collapse navbar-collapse" id="navbarSupportedContent">
-          <ul className="navbar-nav ms-auto mb-2 mb-lg-0">
-            <li className="nav-item dropdown">
-              <a
-                className="nav-link dropdown-toggle"
-                href="#"
-                role="button"
-                data-bs-toggle="dropdown"
-                aria-expanded="false"
-              >
-                Services
-              </a>
-              <ul className="dropdown-menu">
-                <li>
-                  <Link className="dropdown-item" to="/services/cafe">
-                    Cafe Managed Services
-                  </Link>
-                </li>
-                <li>
-                  <hr className="dropdown-divider" />
-                </li>
-                <li>
-                  <Link className="dropdown-item" to="/services/saas">
-                    SaaS Solution
-                  </Link>
-                </li>
-                <li>
-                  <hr className="dropdown-divider" />
-                </li>
-                <li>
-                  <Link className="dropdown-item" to="/services/events">
-                    Events & Pop-ups
-                  </Link>
-                </li>
-              </ul>
-            </li>
-            <li className="nav-item">
-              <Link className="nav-link" to="/sectors">
-                Sectors
-              </Link>
-            </li>
-            <li className="nav-item">
-              <Link className="nav-link" to="/about">
-                About Us
-              </Link>
-            </li>
-            <li className="nav-item">
-              <Link className="nav-link" to="/contact">
-                Contact
-              </Link>
-            </li>
-          </ul>
-
-          <form className="d-flex ms-5" role="search">
-            <Link to="/login" className="btn btn-outline-success me-3">
-              Login
-            </Link>
-            <Link to="/signup" className="btn btn-outline-success">
-              Sign Up
-            </Link>
-          </form>
-        </div>
-      </div>
-    </nav>
-  );
-};
-
-// ✅ Footer Component
-const Footer = () => {
-  return (
-    <footer className="bg-success-subtle text-muted pt-4 pb-2">
-      {/* Social Section */}
-      <section className="d-flex justify-content-center justify-content-lg-between px-5 pb-3 border-bottom">
-        <div className="me-5 d-none d-lg-block">
-          <span className="fw-semibold">Get connected with us:</span>
-        </div>
-        <div>
-          <a href="#" className="me-4 text-reset">
-            <FaFacebookF />
-          </a>
-          <a href="#" className="me-4 text-reset">
-            <FaTwitter />
-          </a>
-          <a href="#" className="me-4 text-reset">
-            <FaGoogle />
-          </a>
-          <a href="#" className="me-4 text-reset">
-            <FaInstagram />
-          </a>
-          <a href="#" className="me-4 text-reset">
-            <FaLinkedin />
-          </a>
-          <a href="#" className="me-4 text-reset">
-            <FaGithub />
-          </a>
-        </div>
-      </section>
-
-      {/* Info Section */}
-      <section className="pt-4">
-        <div className="container text-center text-md-start">
-          <div className="row mt-3">
-            {/* Smart Serve */}
-            <div className="col-md-3 col-lg-4 col-xl-3 mx-auto mb-4">
-              <h6 className="fw-bold mb-3 d-flex align-items-center">
-                <FaGem className="me-2 text-secondary" /> Smart Serve
-              </h6>
-              <p className="small">
-                Smart Serve is your one-stop solution for all your food and
-                beverage needs.
-              </p>
-            </div>
-
-            {/* Company */}
-            <div className="col-md-2 col-lg-2 col-xl-2 mx-auto mb-4">
-              <h6 className="fw-bold mb-3">Company</h6>
-              <p>
-                <Link to="/about" className="text-reset text-decoration-none">
-                  About Us
-                </Link>
-              </p>
-              <p>
-                <Link to="/services" className="text-reset text-decoration-none">
-                  Our Services
-                </Link>
-              </p>
-              <p>
-                <Link to="/sectors" className="text-reset text-decoration-none">
-                  Sectors
-                </Link>
-              </p>
-            </div>
-
-            {/* Services */}
-            <div className="col-md-3 col-lg-2 col-xl-2 mx-auto mb-4">
-              <h6 className="fw-bold mb-3">Services</h6>
-              <p>
-                <Link
-                  to="/services/cafe"
-                  className="text-reset text-decoration-none"
-                >
-                  Cafeteria Managed
-                </Link>
-              </p>
-              <p>
-                <Link
-                  to="/services/saas"
-                  className="text-reset text-decoration-none"
-                >
-                  SaaS Solution
-                </Link>
-              </p>
-              <p>
-                <Link
-                  to="/services/events"
-                  className="text-reset text-decoration-none"
-                >
-                  Events & Pop-ups
-                </Link>
-              </p>
-            </div>
-
-            {/* Contact */}
-            <div className="col-md-4 col-lg-3 col-xl-3 mx-auto mb-md-0 mb-4">
-              <h6 className="fw-bold mb-3">Contact</h6>
-              <p className="mb-2">
-                <FaHome className="me-2" /> RETOUCH IT SERVICES
-              </p>
-              <p className="mb-2">
-                <FaEnvelope className="me-2" /> retouch@example.com
-              </p>
-              <p className="mb-0">
-                <FaPhone className="me-2" /> +91-1111111111
-              </p>
-            </div>
-          </div>
-        </div>
-      </section>
-
-      <div className="text-center py-3 border-top">
-        © {new Date().getFullYear()} Smart Serve. All rights reserved.
-      </div>
-    </footer>
-  );
-};
-
-// ✅ Pages
-const Home = () => (
-  <div className="container text-center py-5">
-    <h1 className="text-success">Welcome to Smart Serve</h1>
-    <p>Manage your food services, cafes, and catering efficiently.</p>
-  </div>
-);
-
-const About = () => (
-  <div className="container py-5">
-    <h2 className="text-success">About Smart Serve</h2>
-    <p>
-      Smart Serve provides a complete suite of solutions for cafeterias, events,
-      and SaaS-based restaurant management. Our mission is to make operations
-      simple and smart.
-    </p>
-  </div>
-);
-
-const Contact = () => (
-  <div className="container py-5">
-    <h2 className="text-success">Contact Us</h2>
-    <p>Email: retouch@example.com</p>
-    <p>Phone: +91-1111111111</p>
-  </div>
-);
-
-const Sectors = () => (
-  <div className="container py-5">
-    <h2 className="text-success">Sectors We Serve</h2>
-    <p>Corporate Cafes, Educational Institutions, Hospitals, and more!</p>
-  </div>
-);
-
-const Services = () => (
-  <div className="container py-5">
-    <h2 className="text-success">Our Services</h2>
-    <ul>
-      <li>Cafeteria Management</li>
-      <li>SaaS Solution for Food Services</li>
-      <li>Events and Pop-ups</li>
-    </ul>
-  </div>
-);
-
-const Login = () => (
-  <div className="container py-5">
-    <h2 className="text-success">Login</h2>
-    <p>Login page placeholder — connect with backend later.</p>
-  </div>
-);
-
-const Signup = () => (
-  <div className="container py-5">
-    <h2 className="text-success">Sign Up</h2>
-    <p>Signup page placeholder — connect with backend later.</p>
-  </div>
-);
-
-// ✅ Main App Component
 function App() {
   return (
-    <Router>
-      <Navbar />
-      <Routes>
-        <Route path="/" element={<Home />} />
-        <Route path="/about" element={<About />} />
-        <Route path="/contact" element={<Contact />} />
-        <Route path="/sectors" element={<Sectors />} />
-        <Route path="/services" element={<Services />} />
-        <Route path="/login" element={<Login />} />
-        <Route path="/signup" element={<Signup />} />
-      </Routes>
-      <Footer />
-    </Router>
+    <>
+      {/* ---------- NAVBAR ---------- */}
+      <nav className="navbar navbar-expand-lg bg-success-subtle sticky-top">
+        <div className="container-fluid">
+          <a className="navbar-brand d-flex align-items-center" href="/">
+            <img
+              src="/images/juice.jpeg"
+              alt="Logo"
+              className="img-fluid me-1 rounded logo"
+              style={{ height: "60px" }}
+            />
+            <span>Smart Serve</span>
+          </a>
+
+          <button
+            className="navbar-toggler"
+            type="button"
+            data-bs-toggle="collapse"
+            data-bs-target="#navbarNav"
+            aria-controls="navbarNav"
+            aria-expanded="false"
+            aria-label="Toggle navigation"
+          >
+            <span className="navbar-toggler-icon"></span>
+          </button>
+
+          <div className="collapse navbar-collapse" id="navbarNav">
+            <ul className="navbar-nav ms-auto mb-2 mb-lg-0">
+              <li className="nav-item">
+                <a className="nav-link active" href="/">
+                  Home
+                </a>
+              </li>
+
+              <li className="nav-item dropdown">
+                <a
+                  className="nav-link dropdown-toggle"
+                  href="/services"
+                  role="button"
+                  data-bs-toggle="dropdown"
+                >
+                  Services
+                </a>
+                <ul className="dropdown-menu">
+                  <li>
+                    <a className="dropdown-item" href="/cafe-managed">
+                      Cafe Managed Services
+                    </a>
+                  </li>
+                  <li>
+                    <hr className="dropdown-divider" />
+                  </li>
+                  <li>
+                    <a className="dropdown-item" href="/saas-solution">
+                      SaaS Solution
+                    </a>
+                  </li>
+                  <li>
+                    <hr className="dropdown-divider" />
+                  </li>
+                  <li>
+                    <a className="dropdown-item" href="/events">
+                      Events and Pop-ups
+                    </a>
+                  </li>
+                </ul>
+              </li>
+
+              <li className="nav-item">
+                <a className="nav-link" href="/sectors">
+                  Sectors
+                </a>
+              </li>
+
+              <li className="nav-item">
+                <a className="nav-link" href="/about">
+                  About Us
+                </a>
+              </li>
+
+              <li className="nav-item">
+                <a className="nav-link" href="/careers">
+                  Careers
+                </a>
+              </li>
+            </ul>
+          </div>
+        </div>
+      </nav>
+
+      {/* ---------- ABOUT SECTION ---------- */}
+      <div className="container my-5 text-center">
+        <h2>Welcome to Smart Serve</h2>
+        <p className="lead">
+          Your one-stop solution for all your food and beverage needs. We offer a
+          wide range of services including cafe management, SaaS solutions, and
+          event catering.
+        </p>
+      </div>
+
+      {/* ---------- MENU SECTION ---------- */}
+      <div className="container m-5">
+        <h1 className="text-center mb-4">Our Menus</h1>
+        <div className="row g-4">
+          {[
+            "Juices",
+            "Ice-Cream",
+            "Cake",
+            "Meals",
+            "Rice",
+            "Salad",
+            "Tea/Coffee",
+            "Pizza",
+          ].map((item, index) => (
+            <div key={index} className="col-md-3">
+              <div className="card bg-success-subtle w-100 h-100">
+                <div className="card-body text-center">
+                  <h5 className="card-title">{item}</h5>
+                  <img
+                    src="/images/juice.jpeg"
+                    className="img-fluid menu-img"
+                    alt={item}
+                  />
+                  <a href="/menu" className="d-block mt-2 text-decoration-none">
+                    Click here &gt;
+                  </a>
+                </div>
+              </div>
+            </div>
+          ))}
+        </div>
+      </div>
+
+      {/* ---------- FOOTER ---------- */}
+      <footer className="text-center text-lg-start bg-body-tertiary text-muted mt-5">
+        {/* Social Media Section */}
+        <section className="d-flex justify-content-center justify-content-lg-between p-4 border-bottom">
+          <div className="me-5 d-none d-lg-block">
+            <span>Get connected with us:</span>
+          </div>
+
+          <div>
+            <a href="#" className="me-4 text-reset">
+              <i className="fab fa-facebook-f"></i>
+            </a>
+            <a href="#" className="me-4 text-reset">
+              <i className="fab fa-twitter"></i>
+            </a>
+            <a href="#" className="me-4 text-reset">
+              <i className="fab fa-google"></i>
+            </a>
+            <a href="#" className="me-4 text-reset">
+              <i className="fab fa-instagram"></i>
+            </a>
+            <a href="#" className="me-4 text-reset">
+              <i className="fab fa-linkedin"></i>
+            </a>
+            <a href="#" className="me-4 text-reset">
+              <i className="fab fa-github"></i>
+            </a>
+          </div>
+        </section>
+
+        {/* Footer Links */}
+        <section>
+          <div className="container text-center text-md-start mt-5">
+            <div className="row mt-3">
+              {/* Company Info */}
+              <div className="col-md-3">
+                <h6 className="fw-bold mb-4">
+                  <i className="fas fa-gem me-3"></i>Smart Serve
+                </h6>
+                <p>
+                  Smart Serve is your one-stop solution for all your food and
+                  beverage needs.
+                </p>
+              </div>
+
+              {/* Company Links */}
+              <div className="col-md-2">
+                <h6 className="fw-bold mb-4">Company</h6>
+                <p><a href="/about" className="text-reset">About Us</a></p>
+                <p><a href="/services" className="text-reset">Our Services</a></p>
+                <p><a href="/sectors" className="text-reset">Sectors</a></p>
+              </div>
+
+              {/* Services Links */}
+              <div className="col-md-3">
+                <h6 className="fw-bold mb-4">Services</h6>
+                <p><a href="/cafe-managed" className="text-reset">Cafeteria Managed</a></p>
+                <p><a href="/saas-solution" className="text-reset">SaaS Solution</a></p>
+                <p><a href="/events" className="text-reset">Events & Pop-ups</a></p>
+              </div>
+
+              {/* Contact */}
+              <div className="col-md-4">
+                <h6 className="fw-bold mb-4">Contact</h6>
+                <p><i className="fas fa-home me-3"></i> RETOUCH IT SERVICES</p>
+                <p><i className="fas fa-envelope me-3"></i> retouch@example.com</p>
+                <p><i className="fas fa-phone me-3"></i> +91-1111111111</p>
+              </div>
+            </div>
+          </div>
+        </section>
+      </footer>
+    </>
   );
 }
 
